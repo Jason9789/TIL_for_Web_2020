@@ -9,3 +9,4 @@
 - 2019.12.23 1일차
   - JavaScript Variable
   - JavaScript Function
+  - JavaScript Class

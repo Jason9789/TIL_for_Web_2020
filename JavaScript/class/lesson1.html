@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Class for Beginner</title>
+  </head>
+  <body>
+    <script>
+      // 사칙연산 Calculator 클래스 생성
+      function Calculator() {
+        this.add = function(a, b) {
+          alert("두 수의 합은 " + (a + b) + "입니다.");
+          document.write("두 수의 합은 " + (a + b) + "입니다.", "<br>");
+        };
+
+        this.sub = function(a, b) {
+          alert("두 수의 차는 " + (a - b) + "입니다.");
+          document.write("두 수의 차는 " + (a - b) + "입니다.", "<br>");
+        };
+
+        this.mul = function(a, b) {
+          alert("두 수의 곱은 " + a * b + "입니다.");
+          document.write("두 수의 곱은 " + a * b + "입니다.", "<br>");
+        };
+
+        this.div = function(a, b) {
+          alert("두 수의 나눈 값은 " + a / b + "입니다.");
+          document.write("두 수의 나눈 값은 " + a / b + "입니다.", "<br>");
+        };
+      }
+
+      // Calculator 객체 생성
+      var cal1 = new Calculator();
+
+      // 사칙연산 실행
+      cal1.add(10, 20);
+      cal1.sub(10, 20);
+      cal1.mul(10, 20);
+      cal1.div(10, 20);
+    </script>
+  </body>
+</html>
