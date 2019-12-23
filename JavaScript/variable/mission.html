@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Variable Missioin</title>
+  </head>
+  <body>
+    <script>
+      // 단일 변수 만들기 1
+      var id = "pangeun";
+      document.write("id = " + id + "<br>");
+
+      // 단일 변수 만들기 2
+      var cold = false;
+      document.write("cold = " + cold + "<br>");
+
+      // 다중 변수 만들기
+      var name = "전판근";
+      var age = 23;
+      var job = "학생";
+      var university = "HUFS";
+
+      document.write("name = " + name + "<br>");
+      document.write("age = " + age + "<br>");
+      document.write("job = " + job + "<br>");
+      document.write("university = " + university + "<br>");
+
+      //변숫값 확인
+      var a = 10;
+      var b = a;
+      a = 30;
+
+      document.write("a = " + a + ", b = " + b + "<br>");
+
+      //변수 활용
+      var name = "전판근";
+      var data = "자바스크립트 동네";
+
+      for (var i = 0; i < 5; i++) {
+        document.write(
+          i + ". " + name + "님! " + data + "에 오신 것을 환영합니다." + "<br>"
+        );
+      }
+    </script>
+  </body>
+</html>
