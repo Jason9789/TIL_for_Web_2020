@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Function for Beginner</title>
+  </head>
+  <body>
+    <script>
+      // 초보자를 위한 함수.
+      // 함수 사용 전 구구단
+      var dan = 3;
+      document.write(dan + " * 1 = " + dan * 1, "<br>");
+      document.write(dan + " * 2 = " + dan * 2, "<br>");
+      document.write(dan + " * 3 = " + dan * 3, "<br>");
+      document.write(dan + " * 4 = " + dan * 4, "<br>");
+      document.write(dan + " * 5 = " + dan * 5, "<br>");
+      document.write(dan + " * 6 = " + dan * 6, "<br>");
+      document.write(dan + " * 7 = " + dan * 7, "<br>");
+      document.write(dan + " * 8 = " + dan * 8, "<br>");
+      document.write(dan + " * 9 = " + dan * 9, "<br>");
+
+      dan = 7;
+      document.write(dan + " * 1 = " + dan * 1, "<br>");
+      document.write(dan + " * 2 = " + dan * 2, "<br>");
+      document.write(dan + " * 3 = " + dan * 3, "<br>");
+      document.write(dan + " * 4 = " + dan * 4, "<br>");
+      document.write(dan + " * 5 = " + dan * 5, "<br>");
+      document.write(dan + " * 6 = " + dan * 6, "<br>");
+      document.write(dan + " * 7 = " + dan * 7, "<br>");
+      document.write(dan + " * 8 = " + dan * 8, "<br>");
+      document.write(dan + " * 9 = " + dan * 9, "<br>");
+
+      // 함수 사용 후 구구단.
+      function print99dan(dan) {
+        for (var i = 1; i < 10; i++) {
+          document.write(dan + " * " + i + " = " + dan * i, "<br>");
+        }
+      }
+
+      print99dan(3);
+      print99dan(5);
+      print99dan(9);
+
+      document.write("<br>");
+
+      // sum 함수.
+      function sum(a, b) {
+        var result = a + b;
+        return result;
+      }
+
+      var data = sum(20, 30);
+
+      document.write("data = " + data, "<br>");
+    </script>
+  </body>
+</html>
