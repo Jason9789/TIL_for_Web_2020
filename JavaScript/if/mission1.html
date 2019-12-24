@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>if mission</title>
+  </head>
+  <body>
+    <script>
+      // 1. 경품 추천 만들기
+      var luckyValue = window.prompt("두궁두궁! 행운의 번호를 고르세요.");
+
+      if (luckyValue == "1") document.write("당첨! 냉장고!");
+      else if (luckyValue == "2") document.write("당첨! 세탁기");
+      else if (luckyValue == "3") document.write("당첨! TV");
+      else document.write("꽝입니다.");
+
+      // 2. 학점 구하기
+      var value = window.prompt("평균 점수를 입력하세요.");
+
+      value = parseInt(value);
+
+      if (value >= 90 && value <= 100)
+        alert(value + " 점수의 학점은? A 입니다.");
+      else if (value >= 80 && value < 90)
+        alert(value + " 점수의 학점은? B입니다.");
+      else if (value >= 70 && value < 80)
+        alert(value + " 점수의 학점은? C입니다.");
+      else if (value >= 60 && value < 70)
+        alert(value + " 점수의 학점은? D입니다.");
+      else alert(value + " 점수의 학점은? F입니다.");
+    </script>
+  </body>
+</html>

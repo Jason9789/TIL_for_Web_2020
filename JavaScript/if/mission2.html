@@ -1,0 +1,60 @@
+<!-- 
+    이미지 관련 추가해야 함. 
+    jQuery CDN 확인-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Check Box</title>
+    <style>
+      body {
+        font-size: 9pt;
+      }
+
+      .d-checkbox {
+        position: relative;
+        left: 100px;
+        top: 100px;
+      }
+
+      .d-checkbox .checkbox {
+        width: 20px;
+        height: 15px;
+        float: left;
+        background: url("./resources/checkbox_uncheck.png") no-repeat;
+      }
+
+      .d-checkbox .checkbox.check {
+        background: url("./resources/checkbox_check.png") no-repeat;
+      }
+    </style>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.js"
+      integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $document.ready(function() {
+        var $chk = $(".d-checkbox .checkbox");
+
+        $(".d-checkbox").click(function() {
+          bCheck = !bCheck;
+
+          if (bCheck == true) {
+            $chk.addClass("check");
+          } else {
+            $chk.removeClass("check");
+          }
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div class="d-checkbox">
+      <div class="checkbox"></div>
+      <div class="label">체크박스-여기를 클릭해보세요.</div>
+    </div>
+  </body>
+</html>
