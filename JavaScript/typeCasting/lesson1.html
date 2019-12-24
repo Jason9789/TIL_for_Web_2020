@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Type Casting</title>
+  </head>
+  <body>
+    <script>
+      // 예제 1
+      // 다음과 같이 하면 age는 문자열이다. 따라서 문자를 숫자로 변환해주어어한다.
+      var age = window.prompt("나이를 입력해주세요.");
+      age = age + 30;
+      alert("결과값은? " + age);
+
+      // 문자 -> 숫자 형변환은 다음과 같다.
+      var age = window.prompt("나이를 입력해주세요.");
+      age = parseInt(age) + 30;
+      alert("결과값은? " + age);
+    </script>
+  </body>
+</html>

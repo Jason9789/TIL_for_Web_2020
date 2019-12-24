@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Implicit Type Casting</title>
+  </head>
+  <body>
+    <script>
+      var result = 1 + "2";
+      document.write("result = " + result, "<br>");
+
+      // 예제
+      // 숫자를 문자로
+      var a = "30";
+      var result = 1 + a + 10;
+      document.write("result = " + result, "<br>");
+
+      // 불린 값을 숫자로
+      var result = 2 + true;
+      document.write("result = " + result, "<br>");
+
+      // 불린 값을 문자열로
+      var result = "2" + true;
+      document.write("result = " + result, "<br>");
+
+      // 숫자를 문자로 - String() 사용
+      var test1 = 15;
+      var result = String(test1);
+      document.write("result = " + result, "<br>");
+
+      // 숫자를 문자로 - toString() 사용
+      var test1 = 15;
+      var result = test1.toString();
+      document.write("result = " + result, "<br>");
+
+      // toString()의 경우 10진수 말고 8 혹은 16 진수 문자로도 변형 가능
+      var test1 = 15;
+      var result = test1.toString(16);
+      document.write("result = " + result, "<br>");
+    </script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>mission</title>
+  </head>
+  <body>
+    <script>
+      // 미션 1. 숫자를 문자로 형변환
+      var test = 100;
+
+      var result = test.toString();
+      document.write("result = " + result, "<br>");
+
+      var result = String(test);
+      document.write("result = " + result, "<br>");
+
+      // 미션 2. 문자를 숫자로 형변환
+      var test = "100.50";
+
+      var result = test + 150 + "20";
+      document.write("result = " + result, "<br>");
+
+      var result = Number(result) + 150 + Number("20");
+      document.write("result = " + result, "<br>");
+    </script>
+  </body>
+</html>
