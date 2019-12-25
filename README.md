@@ -12,5 +12,5 @@
   - JavaScript Function
   - JavaScript Class
   - JavaScript Type Casting
-  - JavaScript if statements
-
+  - JavaScript if statement
+  - JavaScript switch statement

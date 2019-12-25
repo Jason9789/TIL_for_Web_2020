@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Switch Calculator</title>
+  </head>
+  <body>
+    <script>
+      // switch 사칙 연산
+      var num1 = window.prompt("첫 번째 숫자 값을 입력해주세요.");
+      var op = window.prompt("사칙연산자 중 하나를 입력해주세요.");
+      var num2 = window.prompt("두 번째 숫자 값을 입력해주세요.");
+
+      num1 = parseInt(num1);
+      num2 = parseInt(num2);
+
+      var result = 0;
+
+      switch (op) {
+        case "+":
+          result = num1 + num2;
+          break;
+        case "-":
+          result = num1 - num2;
+          break;
+        case "*":
+          result = num1 * num2;
+          break;
+        case "/":
+          result = num1 / num2;
+          break;
+        case "%":
+          result = num1 % num2;
+          break;
+        default:
+          alert("사칙 연산자를 입력해주세요.");
+          break;
+      }
+
+      document.write("사칙연산 결과는 " + result + " 입니다.");
+    </script>
+  </body>
+</html>
