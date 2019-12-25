@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>continue & break</title>
+  </head>
+  <script>
+    // 예제 - continue
+    var i = 1;
+    while (i <= 10) {
+      i++;
+      continue;
+
+      document.write(i + "<br>");
+    }
+
+    document.write("최종 i = " + i + "<br>");
+
+    // 예제 - break
+    var i = 1;
+    while (i <= 10) {
+      break;
+      i++;
+
+      document.write(i + "<br>");
+    }
+
+    document.write("최종 i = " + i + "<br>");
+  </script>
+  <body></body>
+</html>

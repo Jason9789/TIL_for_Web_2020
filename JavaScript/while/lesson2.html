@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>무인도 탈출</title>
+  </head>
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script>
+    document.write("주사위를 5번 굴려 5번 안에 탈출하세요.<br>");
+    $(document).ready(function() {
+      $("#btnStart").click(function() {
+        var escNum = parseInt(Math.random() * 6) + 1;
+        console.log(escNum);
+        var cnt = 0;
+        while (cnt < 5) {
+          cnt++;
+          var num = parseInt(Math.random() * 6) + 1;
+          console.log("현재 나온 숫자 : " + num);
+          if (num == escNum) {
+            alert("탈출입니다.");
+            document.write("탈출 가능 숫자 : " + escNum, "<br>");
+            break;
+          } else {
+            alert("다시 굴려주세요. 남은 횟수 : " + (5 - cnt));
+          }
+        }
+      });
+    });
+  </script>
+  <body>
+    <input type="button" value="탈출 시도" id="btnStart" />
+  </body>
+</html>

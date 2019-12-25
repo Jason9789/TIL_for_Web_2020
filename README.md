@@ -15,3 +15,4 @@
   - JavaScript if statement
   - JavaScript switch statement
   - JavaScript for statement
+  - JavaScript while statement
