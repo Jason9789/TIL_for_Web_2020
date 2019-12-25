@@ -14,3 +14,4 @@
   - JavaScript Type Casting
   - JavaScript if statement
   - JavaScript switch statement
+  - JavaScript for statement

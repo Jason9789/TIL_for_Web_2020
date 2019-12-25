@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>mission2</title>
+  </head>
+  <style>
+    div.image-container {
+      position: relative;
+    }
+    div.image-container img {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 120px;
+    }
+  </style>
+
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // 버튼 클릭 이벤트 실행.
+      $("#btnStart").click(function() {
+        // 이미지 찾기.
+        var $images = $("img");
+        // 이미지 개수 구하기.
+        var length = $images.length;
+
+        // 이미지 배열하기
+        for (var i = 0; i < length; i++) {
+          var $img = $images.eq(i);
+          // 위치 값 구하기
+          var x = 100 + i * 150;
+          // 위치 설정
+          $images.eq(i).css({
+            left: x,
+            top: 100
+          });
+        }
+      });
+    });
+  </script>
+  <body>
+    <div>
+      <button id="btnStart">배열 시작</button>
+    </div>
+    <div class="image-container">
+      <img src="img/banners:1.png" />
+      <img src="img/banners:2.png" />
+      <img src="img/banners:3.png" />
+      <img src="img/banners:4.png" />
+      <img src="img/banners:5.png" />
+    </div>
+  </body>
+</html>
