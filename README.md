@@ -9,10 +9,11 @@
 ***
 - 2019.12.23 1일차
   - JavaScript Variable
-  - JavaScript Function
-  - JavaScript Class
+  - JavaScript Function for beginner
+  - JavaScript Class for beginner
   - JavaScript Type Casting
   - JavaScript if statement
   - JavaScript switch statement
   - JavaScript for statement
   - JavaScript while statement
+  - JavaScript Function

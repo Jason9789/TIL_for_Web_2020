@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>function</title>
+  </head>
+  <script>
+    var name = "test1";
+    function func1() {
+      var name = "test2";
+      document.write("2. name = " + name, "<br>");
+    }
+
+    function func2() {
+      var name = "test3";
+      document.write("3. name = " + name, "<br>");
+    }
+
+    function func3() {
+      var name = "test20";
+      document.write("4. name = " + name, "<br>");
+    }
+
+    document.write("1. name = " + name, "<br>");
+    func1();
+    func2();
+    func3();
+    document.write("5. name = " + name, "<br>");
+  </script>
+  <body></body>
+</html>

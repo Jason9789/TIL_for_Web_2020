@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>function</title>
+    <script>
+      function hello() {
+        document.write("안녕하세요. 환영합니다. <br>");
+      }
+
+      for (var i = 0; i < 3; i++) {
+        hello();
+      }
+
+      // 별찍기
+      function printStar() {
+        var star = "";
+        for (var i = 0; i < 5; i++) {
+          for (var j = 0; j <= i; j++) {
+            star += "* ";
+          }
+          star += "<br>";
+        }
+        document.write(star);
+      }
+      // 별찍기 반대
+      function printStarRev() {
+        var star = "";
+        for (var i = 4; i > 0; i--) {
+          for (var j = 0; j < i; j++) {
+            star += "* ";
+          }
+          star += "<br>";
+        }
+        document.write(star);
+      }
+      printStar();
+      printStarRev();
+    </script>
+  </head>
+  <body></body>
+</html>
