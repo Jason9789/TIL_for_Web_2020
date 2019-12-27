@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>function</title>
+  </head>
+  <script>
+    // 두 수의 합
+    function sum(num1, num2) {
+      var result = num1 + num2;
+      alert("두 수의 합은 " + result);
+    }
+
+    var num1 = window.prompt("첫 번째 수를 입력");
+    var num2 = window.prompt("첫 번째 수를 입력");
+
+    num1 = parseInt(num1);
+    num2 = parseInt(num2);
+
+    sum(num1, num2);
+
+    // 두 수의 합 - 함수에 리턴값 있음
+    function sum2(num1, num2) {
+      var result = num1 + num2;
+      return result;
+    }
+
+    var sum = sum2(10, 30);
+    alert("두 수의 합은 " + sum);
+
+    // argument 예제
+    function showInfo() {
+      alert("안녕하세요. " + userName + "님의 나이는 " + age + "입니다.");
+    }
+
+    showInfo("판근", 23);
+
+    // arguments 사용
+    function showInfo() {
+      console.log("0 = " + arguments[0]);
+      console.log("1 = " + arguments[1]);
+      alert(
+        "안녕하세요. " +
+          arguments[0] +
+          "님의 나이는 " +
+          arguments[1] +
+          "입니다."
+      );
+    }
+
+    showInfo("판근", 23);
+
+    // 무한루프 숫자 더하기
+    function sample() {
+      var result = 0;
+
+      while (true) {
+        var value = window.prompt("숫자를 입력해주세요");
+        value = parseInt(value);
+
+        if (value == 0) {
+          alert("입력이 종료되었습니다. 결과 값은 " + result + "입니다.");
+          return;
+        }
+
+        result += value;
+      }
+    }
+  </script>
+  <body></body>
+</html>

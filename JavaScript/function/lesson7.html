@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>익명 함수</title>
+  </head>
+  <style>
+    #info {
+      border: 1px solid #000;
+      min-height: 100px;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+  <script>
+    // var count = 0;
+    // var $info = null;
+
+    // $(document).ready(function() {
+    //   $info = $("#info");
+
+    //   $info.append("<p>" + count + " 안녕하세요. 환영합니다.</p>");
+    //   count++;
+    //   $("#btnStart").click(function() {
+    //     $info.append("<p>" + count + " 안녕하세요. 환영합니다.</p>");
+    //     count++;
+    //   });
+    // });
+
+    var count = 0;
+    var $info = null;
+    $(document).ready(function() {
+      $info = $("#info");
+
+      hello();
+      $("#btnStart").click(function() {
+        hello();
+      });
+    });
+
+    function hello() {
+      $info.append("<p>" + count + " 안녕하세요. 환영합니다.</p>");
+      count++;
+    }
+  </script>
+  <body>
+    <button id="btnStart">출력</button>
+    <div id="info"></div>
+  </body>
+</html>

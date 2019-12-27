@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>function</title>
+
+    <script>
+      function hello(name) {
+        document.write(name + "님 환영합니다.<br>");
+      }
+
+      hello("전판근");
+      var func = hello;
+      func("판근");
+
+      function hello1() {
+        alert("hello");
+      }
+      function hello2() {
+        alert("안녕하세요");
+      }
+
+      function execute(func) {
+        func();
+      }
+
+      execute(hello1);
+      execute(hello2);
+
+      function createHello() {
+        function hello(user) {
+          document.write(user + "님 방문을 환영합니다.");
+        }
+        return hello;
+      }
+
+      var result = createHello();
+      result("판근22");
+    </script>
+  </head>
+  <body></body>
+</html>
