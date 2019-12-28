@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>함수 정의</title>
+    <script>
+      // 일반적 방법
+      function hello(name) {
+        document.write(name + "님 환영합니다.<br>");
+      }
+      hello("팡근1");
+
+      // 함수 리터럴 이용
+      var hello = function(name) {
+        document.write(name + "님 환영합니다.<br>");
+      };
+      hello("팡근2");
+
+      // Function 객체 이용
+      var hello = new Function(
+        "name",
+        "document.write(name + '님 환영합니다.<br>')"
+      );
+      hello("팡근3");
+
+      // 익명함수 확장
+      (function(name) {
+        document.write(name + "님 환영합니다.<br>");
+      })("팡근4");
+    </script>
+  </head>
+  <body></body>
+</html>
