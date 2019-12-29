@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>동기 비동기</title>
+  </head>
+  <script>
+    // alert("안녕하세요");
+    // document.write("alert() 함수가 끝나야 이 내용이 실행됨<br>");
+
+    // var count = 1;
+
+    // setInterval(function() {
+    //   document.write("2. count = " + count, "<br>");
+    // }, 3000);
+
+    // document.write(
+    //   "1. ajax() 동작이 모두 끝나지 않았어도 바로 실행됩니다.<br>"
+    // );
+
+    // #1
+    console.log("hello");
+    setTimeout(function() {
+      console.log("bye");
+    }, 3000);
+    console.log("hello again");
+  </script>
+  <body></body>
+</html>
