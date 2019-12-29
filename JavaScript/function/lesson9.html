@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>중첩 함수</title>
+  </head>
+  <script>
+    // function startHello() {
+    //   var count = 0;
+    //   setInterval(function() {
+    //     count++;
+    //     }
+    //     document.write(count + " 안녕하세요.<br>");
+    //   }, 1000);
+    // }
+    // startHello();
+
+    function calculator(op, num1, num2) {
+      var result = 0;
+      var num1 = parseInt(num1);
+      var num2 = parseInt(num2);
+
+      switch (op) {
+        case "+":
+          result = add(num1, num2);
+          break;
+        case "-":
+          result = sub(num1, num2);
+          break;
+        case "*":
+          result = mul(num1, num2);
+          break;
+        case "/":
+          result = div(num1, num2);
+          break;
+      }
+
+      alert("결과값은 " + result);
+
+      function add(num1, num2) {
+        return num1 + num2;
+      }
+      function sub(num1, num2) {
+        return num1 - num2;
+      }
+      function mul(num1, num2) {
+        return num1 * num2;
+      }
+      function div(num1, num2) {
+        return num1 / num2;
+      }
+    }
+
+    var num1 = window.prompt("첫 번째 숫자 입력");
+    var op = window.prompt("연산자 입력");
+    var num2 = window.prompt("두 번째 숫자 입력");
+
+    calculator(op, num1, num2);
+  </script>
+  <body></body>
+</html>
