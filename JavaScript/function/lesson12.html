@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>클로저 함수</title>
+    <script>
+      // 일반 함수
+      function addCount() {
+        var count = 0;
+        count++;
+        return count;
+      }
+
+      document.write("1. count = " + addCount(), "<br>");
+      document.write("2. count = " + addCount(), "<br>");
+      document.write("3. count = " + addCount(), "<br>");
+
+      // 클로저 사용
+      function createCounter() {
+        var count = 0;
+        function addCount() {
+          count++;
+          return count;
+        }
+        return addCount;
+      }
+
+      var counter = createCounter();
+      document.write("1. count = " + counter(), "<br>");
+      document.write("2. count = " + counter(), "<br>");
+      document.write("3. count = " + counter(), "<br>");
+    </script>
+  </head>
+  <body></body>
+</html>
