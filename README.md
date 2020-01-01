@@ -17,5 +17,5 @@
   - JavaScript for statement
   - JavaScript while statement
   - JavaScript Function
-
+  - JavaScript Class
   - JavaScript Number Baseball game

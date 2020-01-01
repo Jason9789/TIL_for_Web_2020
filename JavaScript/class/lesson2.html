@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>리터럴 방식</title>
+    <script>
+      // 클래스 정의 및 인스턴스 생성
+      var user = {
+        name: "pangeun",
+        age: 24,
+        showInfo: function() {
+          document.write("name = " + this.name + ", age = " + this.age, "<br>");
+        }
+      };
+
+      // 메서드 접근하기
+      user.showInfo();
+
+      //  리터럴 함수 사용
+      var userInfo = {
+        userName: "전판근",
+        id: "pangeun",
+        nickName: "pang",
+        age: 24,
+        address: "경기도 용인시"
+      };
+
+      function showInfo(userInfo) {
+        document.write(
+          "name = " + userInfo.userName,
+          ", id = " + userInfo.id,
+          ", nickName = " + userInfo.nickName,
+          ", age = " + userInfo.age,
+          ", adress = " + userInfo.address
+        );
+      }
+      // 함수 호출
+      showInfo(userInfo);
+    </script>
+  </head>
+  <body></body>
+</html>

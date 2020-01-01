@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>리터럴 탭메뉴</title>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        // 탭메뉴 요소 초기화
+        tabMenu.init();
+        // 탭 메뉴 요소에 이벤트 등록
+        tabMenu.initEvent();
+      });
+
+      var tabMenu = {
+        $tabMenu: null,
+        $menuItems: null,
+        $selectMenuItem: null,
+
+        // 요소 초기화
+        init: function() {
+          this.$tabMenu = $("#tabMenu");
+          this.$menuItems = this.$tabMenu.find("li");
+        },
+
+        // 이벤트 등록
+        initEvent: function() {
+          var objThis = this;
+          this.$menuItems.on("click", function() {
+            objThis.setSelectItem($(this));
+          });
+        },
+
+        setSelectItem: function($menuItem) {
+          // 기존 선택 메뉴 아이템 비활성화 처리
+          if (this.$selectMenuItem) {
+            this.$selectMenuItem.removeClass("select");
+          }
+          // 신규 아이템 활성화 처리
+          this.$selectMenuItem = $menuItem;
+          this.$selectMenuItem.addClass("select");
+        }
+      };
+    </script>
+  </head>
+
+  <body>
+    <p>첫 번째 탭메뉴(#tabMenu)</p>
+    <ul class="tab-menu" id="tabMenu">
+      <li class="menuitem1">google</li>
+      <li class="menuitem2">facebook</li>
+      <li class="menuitem3">pinterest</li>
+      <li class="menuitem4">twitter</li>
+      <li class="menuitem5">airbnb</li>
+      <li class="menuitem6">path</li>
+    </ul>
+  </body>
+</html>
