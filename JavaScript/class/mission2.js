@@ -15,6 +15,14 @@ class Calculator {
     this.initEvent();
   }
 
+  // 요소 초기화
+  init() {
+    this.$value1 = $("#val1");
+    this.operator = $("#op");
+    this.$value2 = $("#val2");
+    this.$output = $("#output");
+  }
+
   // 이벤트 초기화
   initEvent() {
     var objThis = this;
@@ -24,20 +32,12 @@ class Calculator {
     });
   }
 
-  // 요소 초기화
-  init() {
-    this.$value1 = $("#val1");
-    this.operator = $("#op");
-    this.$value2 = $("#val2");
-    this.$output = $("#output");
-  }
-
   // 입력 정보를 구한 후 계산 메서드 호출
   exeCalculate() {
     // 정보 입력 구하기.
-    var val1 = parseInt(this.$value1);
-    var operator = this.operator;
-    var val2 = parseInt(this.$value2);
+    var val1 = parseInt(this.$value1.val());
+    var operator = this.operator.val();
+    var val2 = parseInt(this.$value2.val());
     // 사칙연산 메서드 실행
     this.calculator(operator, val1, val2);
   }
