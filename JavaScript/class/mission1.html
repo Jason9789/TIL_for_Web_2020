@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>구구단 클래스</title>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(document).ready(function() {
+        var my99dan = new Dan99();
+
+        $("#myDan").click(function() {
+          var dan = window.prompt("단을 입력하세요");
+          my99dan.printDan(dan);
+        });
+
+        $("#dan3").click(function() {
+          // 3단 출력
+          my99dan.printDan(3);
+        });
+
+        $("#dan6").click(function() {
+          // 6단 출력
+          my99dan.printDan(6);
+        });
+
+        $("#dan9").click(function() {
+          // 9단 출력
+          my99dan.printDan(9);
+        });
+
+        $("#clear").click(function() {
+          // 클리어
+          my99dan.clear();
+        });
+      });
+
+      function Dan99() {
+        this.$output = $("#output");
+      }
+
+      Dan99.prototype.printDan = function(newDan) {
+        var result = "";
+        for (let i = 1; i < 10; i++) {
+          result += `${newDan} * ${i} = ${newDan * i} <br>`;
+        }
+        // html 화면에 결과값을 출력하는 것.
+        this.$output.html(result);
+      };
+
+      Dan99.prototype.clear = function() {
+        this.$output.html("");
+      };
+    </script>
+  </head>
+  <body>
+    <div>
+      <!-- 이건 구현해야하는 부분. -->
+      <button id="myDan">
+        내가 원하는 단
+      </button>
+
+      <button id="dan3">
+        3단 출력
+      </button>
+      <button id="dan6">
+        6단 출력
+      </button>
+      <button id="dan9">
+        9단 출력
+      </button>
+      <button id="clear">
+        지우기
+      </button>
+    </div>
+    <div id="output">
+      <!-- 결과값 출력 부분 -->
+    </div>
+  </body>
+</html>

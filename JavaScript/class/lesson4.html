@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>함수 방식</title>
+  </head>
+  <script>
+    // // 함수 방식을 활용한 간단한 클래스 만들기
+    // function User() {
+    //   this.name = "pangeun";
+    //   this.age = 10;
+    //   this.showInfo = function() {
+    //     // document.write("name = " + this.name + ", age = " + this.age);
+    //     document.write(`name = ${this.name}, age = ${this.age}`);
+    //   };
+    // }
+
+    // // 인스턴스 생성
+    // var user = new User();
+
+    // // 메서드 호출
+    // user.showInfo();
+
+    // 프로토타입 방식으로 클래스 만들기
+    function User() {
+      // 프로퍼티 정의
+      this.name = "pangeun";
+      this.age = 10;
+    }
+
+    // 메서드 정의
+    User.prototype.showInfo = function() {
+      document.write(`name = ${this.name}, age = ${this.age}`);
+    };
+
+    // 인ㅇ스턴스 생성
+    var user = new User();
+
+    // 메서드 호출
+    user.showInfo();
+  </script>
+  <body></body>
+</html>
