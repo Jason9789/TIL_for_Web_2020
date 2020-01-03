@@ -29,6 +29,7 @@
   - JavaScript Function
   - JavaScript Class
   - JavaScript Number Baseball game
-
+  - JavaScript this
+  ---
   - JavaScript ES2015+ for Node.js
   - JavaScript Front-end for Node.js
