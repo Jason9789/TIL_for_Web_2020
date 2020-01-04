@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>함수 호출</title>
+    <script>
+      // 일반 함수호출()
+      var userName = "PanGeun";
+
+      function User(name) {
+        this.userName = name;
+      }
+
+      User("PanGeun2");
+      console.log(`userName = ${userName}`);
+
+      // new 함수호출()
+      var userName = "test";
+
+      function User(name) {
+        this.userName = name;
+      }
+
+      // 호출
+      var user = new User("pangeun");
+      console.log(`1. userName = ${userName}`);
+      console.log(`2. userName = ${user.userName}`);
+    </script>
+  </head>
+  <body></body>
+</html>
