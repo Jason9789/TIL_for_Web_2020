@@ -1,5 +1,6 @@
 var table = document.getElementById("table");
 var data = [];
+var scoreTable = document.getElementById("score");
 
 function reset() {
   var fragment = document.createDocumentFragment();

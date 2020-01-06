@@ -31,6 +31,7 @@
   - JavaScript Class Inheritance
   - JavaScript this
   - JavaScript Number Baseball game
+  - JavaScript 2048 Game
   ---
   - JavaScript ES2015+ for Node.js
   - JavaScript Front-end for Node.js
