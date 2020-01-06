@@ -46,6 +46,31 @@ function draw() {
   });
 }
 
-reset();
-random();
-draw();
+reset(); // 초기화
+random(); // 랜덤 생성
+draw(); // 그리기
+
+var dragStart = false;
+var startPoint;
+var endPoint;
+
+// 마우스 누를 때
+window.addEventListener("mousedown", function(event) {
+  this.console.log("mousedown", event);
+  dragStart = true;
+  startPoint = [event.clientX, event.clientY];
+});
+
+// 마우스 움직일 때
+window.addEventListener("mousemove", function(event) {
+  if (dragStart) {
+    this.console.log("mousemove", event);
+  }
+});
+
+// 마우스 뗄 때
+window.addEventListener("mouseup", function(event) {
+  this.console.log("mouseup", event);
+  dragStart = false;
+  endPoint = [event.clientX, event.clientY];
+});
