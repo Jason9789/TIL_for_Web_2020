@@ -28,6 +28,7 @@
   - JavaScript while statement
   - JavaScript Function
   - JavaScript Class
+  - JavaScript Class Inheritance
   - JavaScript this
   - JavaScript Number Baseball game
   ---
