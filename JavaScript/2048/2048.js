@@ -51,12 +51,13 @@ random(); // 랜덤 생성
 draw(); // 그리기
 
 var dragStart = false;
-var startPoint;
-var endPoint;
+var draging = false;
+var startPoint; // 드래그 시작 좌표
+var endPoint; // 드래그 끝 좌표
 
 // 마우스 누를 때
 window.addEventListener("mousedown", function(event) {
-  this.console.log("mousedown", event);
+  //   this.console.log("mousedown", event);
   dragStart = true;
   startPoint = [event.clientX, event.clientY];
 });
@@ -64,13 +65,33 @@ window.addEventListener("mousedown", function(event) {
 // 마우스 움직일 때
 window.addEventListener("mousemove", function(event) {
   if (dragStart) {
-    this.console.log("mousemove", event);
+    draging = true;
+    // this.console.log("mousemove", event);
   }
 });
 
 // 마우스 뗄 때
 window.addEventListener("mouseup", function(event) {
-  this.console.log("mouseup", event);
-  dragStart = false;
+  //   this.console.log("mouseup", event);
   endPoint = [event.clientX, event.clientY];
+
+  if (draging) {
+    var direction;
+    var subX = endPoint[0] - startPoint[0];
+    var subY = endPoint[1] - startPoint[1];
+
+    if (subX < 0 && Math.abs(subX) / Math.abs(subY) > 1) {
+      direction = "left";
+    } else if (subX > 0 && Math.abs(subX) / Math.abs(subY) > 1) {
+      direction = "right";
+    } else if (subY > 0 && Math.abs(subX) / Math.abs(subY) < 1) {
+      direction = "down";
+    } else if (subY < 0 && Math.abs(subX) / Math.abs(subY) < 1) {
+      direction = "up";
+    }
+    this.console.log(direction);
+  }
+
+  dragStart = false;
+  draging = false;
 });
