@@ -27,11 +27,18 @@ function random() {
       }
     });
   });
-  console.log(emptyArray);
-  var randomLocation =
-    emptyArray[Math.floor(Math.random() * emptyArray.length)];
-  data[randomLocation[0]][randomLocation[1]] = 2;
-  draw();
+
+  if (emptyArray.length === 0) {
+    alert("게임오버 : " + scoreTable.textContent);
+    table.innerHTML = "";
+    reset();
+  } else {
+    console.log(emptyArray);
+    var randomLocation =
+      emptyArray[Math.floor(Math.random() * emptyArray.length)];
+    data[randomLocation[0]][randomLocation[1]] = 2;
+    draw();
+  }
 }
 
 function draw() {
@@ -104,7 +111,18 @@ window.addEventListener("mouseup", function(event) {
       data.forEach(function(rowData, i) {
         rowData.forEach(function(columnData, j) {
           if (columnData) {
-            newData[i].push(columnData);
+            // 합쳐져야 하는 경우
+            if (
+              newData[i][newData[i].length - 1] &&
+              newData[i][newData[i].length - 1] === columnData
+            ) {
+              newData[i][newData[i].length - 1] *= 2;
+              var nowScore = parseInt(scoreTable.textContent, 10);
+              scoreTable.textContent =
+                nowScore + newData[i][newData[i].length - 1];
+            } else {
+              newData[i].push(columnData);
+            }
           }
         });
       });
@@ -124,7 +142,14 @@ window.addEventListener("mouseup", function(event) {
       data.forEach(function(rowData, i) {
         rowData.forEach(function(columnData, j) {
           if (columnData) {
-            newData[i].unshift(columnData);
+            // 합쳐져야 하는 경우
+            if (newData[i][0] && newData[i][0] === columnData) {
+              newData[i][0] *= 2;
+              var nowScore = parseInt(scoreTable.textContent, 10);
+              scoreTable.textContent = nowScore + newData[i][0];
+            } else {
+              newData[i].unshift(columnData);
+            }
           }
         });
       });
@@ -144,7 +169,18 @@ window.addEventListener("mouseup", function(event) {
       data.forEach(function(rowData, i) {
         rowData.forEach(function(columnData, j) {
           if (columnData) {
-            newData[j].push(columnData);
+            // 합쳐져야 하는 경우
+            if (
+              newData[j][newData[j].length - 1] &&
+              newData[j][newData[j].length - 1] === columnData
+            ) {
+              newData[j][newData[j].length - 1] *= 2;
+              var nowScore = parseInt(scoreTable.textContent, 10);
+              scoreTable.textContent =
+                nowScore + newData[j][newData[j].length - 1];
+            } else {
+              newData[j].push(columnData);
+            }
           }
         });
       });
@@ -164,7 +200,14 @@ window.addEventListener("mouseup", function(event) {
       data.forEach(function(rowData, i) {
         rowData.forEach(function(columnData, j) {
           if (columnData) {
-            newData[j].unshift(columnData);
+            // 합쳐져야 하는 경우
+            if (newData[j][0] && newData[j][0] === columnData) {
+              newData[j][0] *= 2;
+              var nowScore = parseInt(scoreTable.textContent, 10);
+              scoreTable.textContent = nowScore + newData[j][0];
+            } else {
+              newData[j].unshift(columnData);
+            }
           }
         });
       });
