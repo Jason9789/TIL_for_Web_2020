@@ -94,4 +94,87 @@ window.addEventListener("mouseup", function(event) {
 
   dragStart = false;
   draging = false;
+
+  switch (direction) {
+    // 왼쪽 ===========================================
+    case "left":
+      var newData = [[], [], [], []];
+
+      // new Data 배열에 저장
+      data.forEach(function(rowData, i) {
+        rowData.forEach(function(columnData, j) {
+          if (columnData) {
+            newData[i].push(columnData);
+          }
+        });
+      });
+      // 저장했던 newData를 통해서 모든 숫자들을 맨 왼쪽으로 옮기기
+      [1, 2, 3, 4].forEach(function(rowData, i) {
+        [1, 2, 3, 4].forEach(function(columnData, j) {
+          data[i][j] = newData[i][j] || 0;
+        });
+      });
+      break;
+
+    // 오른쪽 ===========================================
+    case "right":
+      var newData = [[], [], [], []];
+
+      // new Data 배열에 저장
+      data.forEach(function(rowData, i) {
+        rowData.forEach(function(columnData, j) {
+          if (columnData) {
+            newData[i].unshift(columnData);
+          }
+        });
+      });
+      // 저장했던 newData를 통해서 모든 숫자들을 맨 오른쪽으로 옮기기
+      [1, 2, 3, 4].forEach(function(rowData, i) {
+        [1, 2, 3, 4].forEach(function(columnData, j) {
+          data[i][3 - j] = newData[i][j] || 0;
+        });
+      });
+      break;
+
+    // 위 ===========================================
+    case "up":
+      var newData = [[], [], [], []];
+
+      // new Data 배열에 저장
+      data.forEach(function(rowData, i) {
+        rowData.forEach(function(columnData, j) {
+          if (columnData) {
+            newData[j].push(columnData);
+          }
+        });
+      });
+      // 저장했던 newData를 통해서 모든 숫자들을 맨 위로 올려버리기.
+      [1, 2, 3, 4].forEach(function(columnData, i) {
+        [1, 2, 3, 4].forEach(function(rowData, j) {
+          data[j][i] = newData[i][j] || 0;
+        });
+      });
+      break;
+
+    // 아래 ===========================================
+    case "down":
+      var newData = [[], [], [], []];
+
+      // new Data 배열에 저장
+      data.forEach(function(rowData, i) {
+        rowData.forEach(function(columnData, j) {
+          if (columnData) {
+            newData[j].unshift(columnData);
+          }
+        });
+      });
+      // 저장했던 newData를 통해서 모든 숫자들을 맨 아래 올려버리기.
+      [1, 2, 3, 4].forEach(function(columnData, i) {
+        [1, 2, 3, 4].forEach(function(rowData, j) {
+          data[3 - j][i] = newData[i][j] || 0;
+        });
+      });
+      break;
+  }
+  random();
 });
