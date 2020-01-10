@@ -45,3 +45,4 @@
   - Node.js Cluster
   - Node.js npm
   - Node.js express
+  - Node.js MySQL & sequelize
