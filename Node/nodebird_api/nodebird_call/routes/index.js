@@ -1,6 +1,57 @@
 const express = require("express");
 const axios = require("axios");
+
 const router = express.Router();
+const URL = "http://localhost:8002/v1";
+
+axios.defaults.headers.origin = "http://localhost:8003";
+const request = async (req, api) => {
+  try {
+    // 세션 토큰이 없으면
+    if (!req.session.jwt) {
+      const tokenResut = await axios.post(`${URL}/token`, {
+        clientSecret: process.env.CLIENT_SECRET
+      });
+      // 세션에 토큰 저장
+      req.session.jwt = tokenResult.data.token;
+    }
+    return await axios.get(`${URL}${api}`, {
+      headers: { authorization: req.session.jwt }
+    }); // API 요청
+  } catch (error) {
+    console.error(error);
+    // 410이나 419처럼 의도된 에러면 발생
+    if (error.response.status < 500) {
+      return error.response;
+    }
+    throw error;
+  }
+};
+
+router.get("/mypost", async (req, res, next) => {
+  try {
+    const result = await request(req, "/posts/my");
+    res.json(result.data);
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+});
+
+router.get("/search/:hashtag", async (req, res, next) => {
+  try {
+    const result = await request(
+      req,
+      `/posts/hashtag/${encodeURIComponent(req.params.hashtag)}`
+    );
+    res.json(result.data);
+  } catch (error) {
+    if (error.code) {
+      console.error(error);
+      next(error);
+    }
+  }
+});
 
 router.get("/test", async (req, res, next) => {
   try {
