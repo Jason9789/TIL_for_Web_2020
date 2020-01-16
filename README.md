@@ -53,3 +53,4 @@
 
 ---
 - HUFS 정원사들 2차 공부 내용
+  - Express.js template PUG(JADE)

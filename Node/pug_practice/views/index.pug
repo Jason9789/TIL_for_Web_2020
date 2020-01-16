@@ -1,0 +1,60 @@
+//- extends layout
+
+//- block content
+//-   h1= title
+//-   p Welcome to #{title}
+
+doctype html
+html
+  head
+    style.
+      h1 {
+        font-size: 100px;
+      }
+    
+    //- script.
+    //-   var message = 'PUG';
+    //-   alert(message);
+
+    title pug title
+  body
+    //- h1 현재 시간 : #{ new Date().getHours() }시 #{ new Date().getMinutes() }분 입니다.
+
+    h1= title
+
+    p Welcome to #{title}
+    input(placeholder=title + ' 연습')
+    button(class=title, type='submit') 전송
+
+    br
+    button(type="submit") 보내기
+
+    p
+      | 안녕하세요.
+      | 여러 줄을 입력합니다.
+      br
+      | 태그도 중간에 넣을 수 있습니다.
+
+    - var node = 'Node.js'
+    - var js = 'JavaScript'
+    p #{node}와 #{js}
+
+    p '<strong>이스케이프</strong>'
+    p!= '<strong>이스케이프하지 않음</strong>'
+
+    //- 반복문
+    ul
+      each fruit in ['사과', '배', '오렌지', '바나나', '복숭아']
+        li= fruit
+    
+    ul
+      each fruit, index in ['사과', '배', '오렌지', '바나나', '복숭아']
+        li= (index + 1) + '번째' + fruit
+
+    - var isLoggedIn = true
+    
+    //- 조건문
+    if isLoggedIn
+      div 로그인 되었습니다.
+    else
+      div 로그인이 필요합니다.
