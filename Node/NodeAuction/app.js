@@ -12,12 +12,14 @@ const authRouter = require("./routes/auth");
 const { sequelize } = require("./models");
 const passportConfig = require("./passport");
 
+const sse = require("./sse");
+const webSocket = require("./socket");
+const checkAuction = require("./checkAuction");
+
 const app = express();
 sequelize.sync();
 passportConfig(passport);
-
-const sse = require("./sse");
-const webSocket = require("./socket");
+checkAuction();
 
 const sessionMiddleware = session({
   resave: false,

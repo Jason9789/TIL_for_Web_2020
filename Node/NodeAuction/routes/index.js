@@ -2,8 +2,9 @@ const express = require("express");
 const multer = require("multer");
 const path = require("path");
 const fs = require("fs");
+const schedule = require("node-schedule");
 
-const { Good, Auction, User } = require("../models");
+const { Good, Auction, User, sequelize } = require("../models");
 const { isLoggedIn, isNotLoggedIn } = require("./middlewares");
 
 const router = express.Router();
@@ -65,11 +66,31 @@ router.post(
   async (req, res, next) => {
     try {
       const { name, price } = req.body;
-      await Good.create({
+      const good = await Good.create({
         ownerId: req.user.id,
         name,
         img: req.file.filename,
         price
+      });
+      const end = new Date();
+      end.setDate(end.getDate() + 1); // 하루 뒤
+      schedule.scheduleJob(end, async () => {
+        const success = await Auction.findOne({
+          where: { goodId: good.id },
+          order: [["bid", "DESC"]]
+        });
+        await Good.update(
+          { soldId: success.userId },
+          { where: { id: good.id } }
+        );
+        await User.update(
+          {
+            money: sequelize.literal(`money - ${success.bid}`)
+          },
+          {
+            where: { id: success.userId }
+          }
+        );
       });
       res.redirect("/");
     } catch (error) {
@@ -120,7 +141,7 @@ router.post("/good/:id/bid", isLoggedIn, async (req, res, next) => {
       return res.status(403).send("시장 가격보다 높게 입찰해야 합니다.");
     }
     // 직전 입찰가와 현재 입찰가 비교
-    if (good.auction[0] && good.auction[0].bid >= bid) {
+    if (good.auctions[0] && good.auctions[0].bid >= bid) {
       return res.status(403).send("이전 입찰가보다 높아야 합니다.");
     }
 
