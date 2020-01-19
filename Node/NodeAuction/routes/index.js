@@ -79,4 +79,71 @@ router.post(
   }
 );
 
+router.get("/good/:id", isLoggedIn, async (req, res, next) => {
+  try {
+    const [good, auction] = await Promise.all([
+      Good.findOne({
+        where: { id: req.params.id },
+        include: {
+          model: User,
+          as: "owner"
+        }
+      }),
+      Auction.findAll({
+        where: { goodId: req.params.id },
+        include: { model: User },
+        order: [["bid", "ASC"]]
+      })
+    ]);
+    res.render("auction", {
+      title: `${good.name} - NodeAuction`,
+      good,
+      auction,
+      auctionError: req.flash("auctionError")
+    });
+  } catch (error) {
+    console.error(error);
+    next(error);
+  }
+});
+
+router.post("/good/:id/bid", isLoggedIn, async (req, res, next) => {
+  try {
+    const { bid, msg } = req.body;
+    const good = await Good.findOne({
+      where: { id: req.params.id },
+      include: { model: Auction },
+      order: [[{ model: Auction }, "bid", "DESC"]]
+    });
+    // 시장 가격보다 낮게 입찰하면
+    if (good.price > bid) {
+      return res.status(403).send("시장 가격보다 높게 입찰해야 합니다.");
+    }
+    // 직전 입찰가와 현재 입찰가 비교
+    if (good.auction[0] && good.auction[0].bid >= bid) {
+      return res.status(403).send("이전 입찰가보다 높아야 합니다.");
+    }
+
+    const result = await Auction.create({
+      bid,
+      msg,
+      userId: req.user.id,
+      goodId: req.params.id
+    });
+
+    req.app
+      .get("io")
+      .to(req.params.id)
+      .emit("bid", {
+        bid: result.bid,
+        msg: result.msg,
+        nick: req.user.nick
+      });
+    return res.send("ok");
+  } catch (error) {
+    console.error(error);
+    return next(error);
+  }
+});
+
 module.exports = router;
