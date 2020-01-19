@@ -16,6 +16,9 @@ const app = express();
 sequelize.sync();
 passportConfig(passport);
 
+const sse = require("./sse");
+const webSocket = require("./socket");
+
 const sessionMiddleware = session({
   resave: false,
   saveUninitialized: false,
@@ -46,7 +49,7 @@ app.use("/", indexRouter);
 app.use("/auth", authRouter);
 
 app.use((req, res, next) => {
-  const err = new Error("Nor Found");
+  const err = new Error("Not Found");
   err.status = 404;
   next(err);
 });
@@ -58,6 +61,9 @@ app.use((err, req, res, next) => {
   res.render("error");
 });
 
-app.listen(app.get("port"), () => {
+const server = app.listen(app.get("port"), () => {
   console.log(app.get("port"), "번 포트에서 대기 중");
 });
+
+webSocket(server, app);
+sse(server);
