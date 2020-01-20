@@ -9,6 +9,7 @@
   "author": "PanGeun Jeon",
   "license": "ISC",
   "dependencies": {
+    "@google/maps": "^1.0.2",
     "axios": "^0.19.1",
     "connect-flash": "^0.1.1",
     "cookie-parser": "1.4.4",
@@ -17,7 +18,7 @@
     "express-session": "^1.17.0",
     "mongoose": "5.8.9",
     "morgan": "1.9.1",
-    "pug": "2.0.4"
+    "pug": "^2.0.4"
   },
   "devDependencies": {
     "nodemon": "2.0.2"
