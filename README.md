@@ -57,3 +57,4 @@
   - Node.js MongoDB & Mongoose
   - Node.js Gif Chat
   - Node.js Auction System
+  - Node.js Google Maps API service
