@@ -13,7 +13,7 @@ const Header = (props, context) => {
   const { router } = context;
   return (
     <div>
-      <div className="logo">velopert</div>
+      <div className="logo">PanGeun</div>
       <div className="menu">
         <MenuItem to={"/"} active={router.isActive("/", true)}>
           홈
@@ -23,6 +23,9 @@ const Header = (props, context) => {
         </MenuItem>
         <MenuItem to={"/post"} active={router.isActive("/post")}>
           포스트
+        </MenuItem>
+        <MenuItem to={"/login"} active={router.isActive("/login")}>
+          로그인
         </MenuItem>
       </div>
     </div>

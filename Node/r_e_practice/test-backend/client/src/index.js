@@ -7,6 +7,7 @@ import Home from "./containers/Home";
 import About from "./containers/About";
 import Posts from "./containers/Posts";
 import Post from "./containers/Post";
+import Login from "./containers/Login";
 
 import "./index.css";
 
@@ -18,6 +19,7 @@ ReactDOM.render(
       <Route path="post" component={Posts}>
         <Route path=":id" component={Post} />
       </Route>
+      <Route path="login" component={Login}></Route>
     </Route>
   </Router>,
   document.getElementById("root")
